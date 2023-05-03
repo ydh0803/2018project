@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- JAVA와 연결할 Mapper 파일 설정 -->
+<mapper namespace="poly.persistance.mapper.NoticeMapper">
+
+<insert id="insertPost" parameterType="NoticeDTO">
+      INSERT INTO Post
+      (
+         post_no,
+         post_title,
+         post_contents,
+         post_writer,
+         post_date
+      )
+      VALUES
+      (
+         #{post_no},
+         #{post_title},
+         #{post_contents},
+         #{post_writer},
+         now()
+      )
+   </insert>
+   
+   <select id="getNotice" resultType="NoticeDTO">
+   SELECT *
+   FROM post
+   </select>
+
+</mapper>
